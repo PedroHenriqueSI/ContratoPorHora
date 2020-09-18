@@ -18,11 +18,12 @@ namespace CSHARP.Contract.Entidades.Enums
         {
         }
 
-        public Trabalhador(string nome, LevelTrabalhador level, double salarioBase)
+        public Trabalhador(string nome, LevelTrabalhador level, double salarioBase, Departamento departamento)
         {
             Nome = nome;
             Level = level;
             SalarioBase = salarioBase;
+            Departamento = departamento;
         }
         //Metodo para adicionar o contrato
         public void AddContrato (ContratoHora contrato)
@@ -38,8 +39,14 @@ namespace CSHARP.Contract.Entidades.Enums
         public double Renda (int ano, int mes)
         {
             double SomaRenda = SalarioBase;
-
-
+            foreach (ContratoHora contrato in Contrato)
+            {
+                if (contrato.Data.Year == ano && contrato.Data.Month == mes)
+                {
+                    SomaRenda = SomaRenda + contrato.ValorTotal();
+                }
+            }
+            return SomaRenda;
         }
     }
 }

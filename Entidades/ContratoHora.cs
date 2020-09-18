@@ -9,13 +9,13 @@ namespace CSHARP.Contract.Entidades
         //tipos da classe
         public DateTime Data { get; set; }
         public double ValorPorHora { get; set; }
-        public int Horas { get; set; }
+        public double Horas { get; set; }
 
         //construtores
         public ContratoHora()
         {
         }
-        public ContratoHora(DateTime data, double valorPorHora, int horas)
+        public ContratoHora(DateTime data, double valorPorHora, double horas)
         {
             Data = data;
             ValorPorHora = valorPorHora;
